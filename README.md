@@ -5,9 +5,11 @@ questions. NLQuAD contains 31k non-factoid questions and long answers collected 
 We automatically extract target answers because annotating for non-factoid long QA is extremely challenging and costly. 
  
 ## Dataset
-Download a copy of dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. \
+Download a copy of dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. The format of the dataset is like SQuAD v1.1.\
 [Training Set](http://bit.ly/nlquad_train) \
 [Validation Set](http://bit.ly/nlquad_valid)
+
+
 
 ## BERT 
 ### Requirements
