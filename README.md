@@ -4,13 +4,13 @@ NLQuAD consists of news articles as context documents, interrogative sub-heading
 questions. NLQuAD contains 31k non-factoid questions and long answers collected from 13k BBC news articles. See example articles in BBC [1](https://www.bbc.com/news/world-asia-china-51230011), [2](https://www.bbc.com/news/world-55709428). 
 We automatically extract target answers because annotating for non-factoid long QA is extremely challenging and costly. 
  
-##Dataset
+## Dataset
 Download a copy of dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. \
 [Training Set](https://drive.google.com/file/d/1Yviu4C8kJYh8EpfJGzLjAR5-N_I39Y4D/view?usp=sharing) \
 [Validation Set](https://drive.google.com/file/d/17rXbzbOL71baX5ArBN3wFzC8NAZFPf8G/view?usp=sharing)
 
-##BERT 
-###Requirements
+## BERT 
+### Requirements
 First create a conda environment
 
         conda create -n nlquad python=3.6.10
