@@ -6,8 +6,8 @@ We automatically extract target answers because annotating for non-factoid long 
  
 ## Dataset
 Download a copy of dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. \
-[Training Set](https://drive.google.com/file/d/1Yviu4C8kJYh8EpfJGzLjAR5-N_I39Y4D/view?usp=sharing) \
-[Validation Set](https://drive.google.com/file/d/17rXbzbOL71baX5ArBN3wFzC8NAZFPf8G/view?usp=sharing)
+[Training Set](http://bit.ly/nlquad_train) \
+[Validation Set](http://bit.ly/nlquad_valid)
 
 ## BERT 
 ### Requirements
