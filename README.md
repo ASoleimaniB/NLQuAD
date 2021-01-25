@@ -5,7 +5,7 @@ questions. NLQuAD contains 31k non-factoid questions and long answers collected 
 We automatically extract target answers because annotating for non-factoid long QA is extremely challenging and costly. 
  
 ## Dataset
-Download a copy of dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. The format of the dataset is like SQuAD v1.1.\
+Download a copy of the dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. The format of the dataset is like SQuAD v1.1.\
 [Training Set](http://bit.ly/nlquad_train) \
 [Validation Set](http://bit.ly/nlquad_valid)
 
@@ -13,7 +13,7 @@ Download a copy of dataset, distributed under the [CC BY-NC](https://creativecom
 
 ## BERT 
 ### Requirements
-First create a conda environment
+First, create a conda environment
 
         conda create -n nlquad python=3.6.10
 1- Install `Pytorch 1.1.0` according to your OS and CUDA.
@@ -42,7 +42,7 @@ First create a conda environment
 ### Train & Evaluate
 
 We trained the BERT base model on 2 GPUs with bellow hyperparameters. Please note that by `do_sliding` and `do_answer_accumulation` you enable BERT to encode inputs longer than 512, which is the case in NLQuAD. E.g., here it slides sequences to windows of size 512 with 128 overlappings, and finally accumulates answers from each window. 
-You can simply use 1 GPU but your batch size would be 6 instead of 12 (in our paper). Check output for **Intersection over Union (IoU)** or **Jaccard Index**. 
+You can simply use 1 GPU, but your batch size would be 6 instead of 12 (in our paper). Check the output for **Intersection over Union (IoU)** or **Jaccard Index**. 
 
         python -u run_nlquad.py \
         --model_type bert \
@@ -67,3 +67,56 @@ You can simply use 1 GPU but your batch size would be 6 instead of 12 (in our pa
         --logging_steps=30000 \
         --save_steps=30000 \
         --warmup_steps 1000 \
+## Longformer
+
+### Requirements
+
+Install environment and code (Allen AI Longformer V0.1)
+
+        conda create --name longformer python=3.7
+        conda activate longformer
+        pip install nltk
+        conda install cudatoolkit=10.0
+        pip install git+https://github.com/allenai/longformer.git@v0.1
+    
+Download pre-trained `Longformer-base` model
+
+        wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-base-4096.tar.gz
+    
+### Data preparation 
+Simply do a small conversion using `convert_data_format.py`. Do this for the train, valid, and eval sets.
+
+        --input_dir /Path do Data/NLQuAD_train.json
+        --output_dir /Path to Data/NLQuAD_train_longformer.json 
+        
+### Train & Evaluate
+
+We trained Longformer on one GPU using the old version of Allen AI Longformer code (V0.1) using below hyperparameters. 
+There are newer versions, particularly in the [HuggingFace Transformers](https://github.com/huggingface/transformers) package.
+
+        python -u run_nlquad_longformer.py  \
+        --train_dataset /Path to Data/NLQuAD_train_longformer.json \
+        --dev_dataset /Path to Data/NLQuAD_valid_longformer.json \
+        --gpu 0 \
+        --batch_size 12 \
+        --num_workers 4 \
+        --lr 0.00003 \
+        --warmup 1000 \
+        --epochs 5 \
+        --max_seq_len 4096 \
+        --doc_stride -1 \
+        --save_prefix /Path for saving checkpoints \
+        --model_path /pretrained model from AllenAI/longformer-base-4096 \
+        --seed 4321 \
+        --fp32 \
+        --val_every 0.2 \
+        --max_answer_length 1000 \
+        --max_question_len 100 \
+        
+
+After training, you get `predictions.json`, and you need to run `eval_predictions.py` to get Precision, Recall, F1, EM, and IoU.
+
+        --prediction_dir /Path to Prediction file /predictions_bbc5.json 
+        --data_dir /Path to Data/NLQuAD_valid_longformer.json
+
+
