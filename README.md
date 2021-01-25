@@ -116,7 +116,7 @@ There are newer versions, particularly in the [HuggingFace Transformers](https:/
 
 After training, you get `predictions.json`, and you need to run `eval_predictions.py` to get Precision, Recall, F1, EM, and IoU.
 
-        --prediction_dir /Path to Prediction file /predictions_bbc5.json 
+        --prediction_dir /Path to Prediction file /predictions.json 
         --data_dir /Path to Data/NLQuAD_valid_longformer.json
 
 
