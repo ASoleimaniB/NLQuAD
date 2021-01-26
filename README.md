@@ -86,6 +86,7 @@ Download pre-trained `Longformer-base` model
 ### Data preparation 
 Simply do a small conversion using `convert_data_format.py`. Do this for the train, valid, and eval sets.
 
+        python -u convert_data_format.py \
         --input_dir /Path do Data/NLQuAD_train.json
         --output_dir /Path to Data/NLQuAD_train_longformer.json 
         
@@ -114,8 +115,9 @@ There are newer versions, particularly in the [HuggingFace Transformers](https:/
         --max_question_len 100 \
         
 
-After training, you get `predictions.json`, and you need to run `eval_predictions.py` to get Precision, Recall, F1, EM, and IoU.
-
+After training, you get `predictions.json`, and you need to run `eval_predictions_longformer.py` to get Precision, Recall, F1, EM, and IoU.
+        
+        python -u eval_predictions_longformer.py \
         --prediction_dir /Path to Prediction file /predictions.json 
         --data_dir /Path to Data/NLQuAD_valid_longformer.json
 
