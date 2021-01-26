@@ -1,4 +1,5 @@
 # NLQuAD: A Non-Factoid Long Question Answering Data Set
+_Paper will be published at EACL2021_ \
 NLQuAD is a non-factoid long question answering dataset from BBC news articles. NLQuAD’s question types and the long length of its context documents as well as answers, make it a challenging real-world task.
 NLQuAD consists of news articles as context documents, interrogative sub-headings in the articles as questions, and body paragraphs corresponding to the sub-headings as contiguous answers to the
 questions. NLQuAD contains 31k non-factoid questions and long answers collected from 13k BBC news articles. See example articles in BBC [1](https://www.bbc.com/news/world-asia-china-51230011), [2](https://www.bbc.com/news/world-55709428). 
