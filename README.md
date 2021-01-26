@@ -7,7 +7,8 @@ We automatically extract target answers because annotating for non-factoid long 
 ## Dataset
 Download a copy of the dataset, distributed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/3.0/) licence providing free access for non-commercial and academic usage. The format of the dataset is like SQuAD v1.1.\
 [Training Set](http://bit.ly/nlquad_train) \
-[Validation Set](http://bit.ly/nlquad_valid)
+[Validation Set](http://bit.ly/nlquad_valid) \
+_Evaluataion Set (wait for a leaderboard ...)_
 
 
 
