@@ -134,3 +134,10 @@ After training, you get `predictions.json`, and you need to run `eval_prediction
         --data_dir /Path to Data/NLQuAD_valid_longformer.json
 
 
+## Evaluation Metrics
+
+The evaluation metrics have been already included in the BERT and Longformer codes. However, if you need to access direcrly you can use `Evaluation_Metrics/evaluation_metrics.py`. This evaluates `predictions` against the evaluation set. 
+
+        python -u evaluation_metrics.py \
+        --prediction_dir predictions_BERT.p
+        --data_dir NLQuAD_eval_longformer.json
