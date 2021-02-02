@@ -451,9 +451,9 @@ def evaluate(args, model, tokenizer, prefix=""):
                 tokenizer,
             )
 
-    directory_eval = 'predictions_BERT.p' # This is the prediction file for the blind evaluation set
-    with open(directory_eval, 'wb+') as f_data:  # Python 3: open(..., 'wb')
-        pickle.dump(predictions, f_data)
+    # directory_eval = 'predictions_BERT.p' # This is the prediction file for the blind evaluation set
+    # with open(directory_eval, 'wb+') as f_data:  # Python 3: open(..., 'wb')
+    #     pickle.dump(predictions, f_data)
 
     results = squad_evaluate(examples, predictions)
     return results
