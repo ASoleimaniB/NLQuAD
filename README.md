@@ -21,6 +21,7 @@ NLQuAD revaluation set results (as of 2nd Feb 2021).
 | RoBERTa base | 29.07 | 64.02 | 84.79 | 67.19 | 57.65 |
 | RoBERTa large | 33.40 | 67.79 | **87.56** | 71.10 | 62.39 |
 | Longformer | **50.30** | **83.92** | 85.17 | **81.38** | **73.57** |
+
 _Please send the link of your paper to a.soleimani.b@gmail.com to include your results._
 
 ## BERT 
